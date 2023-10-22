@@ -17,6 +17,8 @@ public class CharacterSelect : MonoBehaviour
     public int playersReady = 0;
 
     public PlayerInput inputSystem;
+    public PlayerInput player2;
+
     public Image gameNextIcon;
     public Image gamePrevIcon;
     public Sprite[] NextIcons;
@@ -54,6 +56,11 @@ public class CharacterSelect : MonoBehaviour
     float time = 0;
 
     public UnityEngine.Color color1;
+
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -310,6 +317,7 @@ public class CharacterSelect : MonoBehaviour
 
 
             playersReady = 1;
+
         } else if (playersReady == 1)
         {
             time = 0;

@@ -10,11 +10,14 @@ public class Player2VictoryConditions : MonoBehaviour
     public Image playerGuage2;
 
     public bool restart;
+    int bestof;
 
     // Start is called before the first frame update
     void Start()
     {
         BindObjects();
+
+        bestof = PlayerPrefs.GetInt("bestof");
 
         restart = false;
         playerGuage1.color = Color.black;
@@ -26,7 +29,10 @@ public class Player2VictoryConditions : MonoBehaviour
     {
         if (restart == true)
         {
-            playerHP.fillAmount = 1;
+            if (bestof == 2)
+            {
+                playerHP.fillAmount = 1;
+            }
             restart = false;
         }
 

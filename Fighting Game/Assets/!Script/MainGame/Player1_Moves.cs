@@ -60,11 +60,15 @@ public class Player1_Moves : MonoBehaviour
     //pause
     bool isPaused;
 
+    int bestof;
+
+
     // Start is called before the first frame update
     void Start()
     {
         FalseBind();
 
+        bestof = PlayerPrefs.GetInt("bestof");
 
         controller = character.GetComponent<Animator>();
         enemyController = enemy.GetComponent<Animator>();
@@ -106,7 +110,9 @@ public class Player1_Moves : MonoBehaviour
 
         if (playerHP == 0f && gauge1.color == Color.red && first == false)
         {
-            playerHP = 100f;
+            if (bestof == 2) {
+                playerHP = 100f;
+            }
             first = true;
         }
     }
