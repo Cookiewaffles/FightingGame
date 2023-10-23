@@ -61,8 +61,6 @@ public class MainMenuSceneSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Accept:" + acceptFlasher + "---- Timer:" + time + "---- Blinker:" + blink);
-
         //game icons
         if (inputSystem.currentControlScheme == "Keyboard") {
             nextGameIcon();
