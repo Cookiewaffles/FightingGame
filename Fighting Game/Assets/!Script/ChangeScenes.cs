@@ -8,6 +8,7 @@ public class ChangeScenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Restart time
         Time.timeScale = 1;
     }
 
