@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("PlayerJoin")]
+    [Header("Main Objects")]
     [SerializeField] private GameObject playerJoinedMenu;
+    [SerializeField] private GameObject playerFightUI;
 
     [Header("Menu Objects")]
     [SerializeField] private GameObject player1MainMenu;
@@ -23,6 +24,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject player1AudioButton;
     [SerializeField] private GameObject player2AudioButton;
 
+
+    private bool player1SubMenuOpen;
+    private bool player2SubMenuOpen;
+
     //During the Game
     void Start()
     {
@@ -33,6 +38,9 @@ public class MenuManager : MonoBehaviour
 
         player1AudioMenu.SetActive(false);
         player2AudioMenu.SetActive(false);
+
+        player1SubMenuOpen = false;
+        player2SubMenuOpen = false;
     }
 
 
@@ -50,6 +58,8 @@ public class MenuManager : MonoBehaviour
 
             EventSystem.current.SetSelectedGameObject(player2Button);
         }
+
+        playerFightUI.SetActive(false);
     }
 
     public void Unpause(int player)
@@ -65,6 +75,8 @@ public class MenuManager : MonoBehaviour
             player2MainMenu.SetActive(false);
         }
 
+        playerFightUI.SetActive(true);
+
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -76,6 +88,9 @@ public class MenuManager : MonoBehaviour
         player1AudioMenu.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(player1AudioButton);
+
+        player1SubMenuOpen = true;
+        player2SubMenuOpen = false;
     }
 
     public void player2AudioOpen() {
@@ -84,6 +99,9 @@ public class MenuManager : MonoBehaviour
         player2AudioMenu.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(player2AudioButton);
+
+        player1SubMenuOpen = false;
+        player2SubMenuOpen = true;
     }
 
     //close
@@ -94,6 +112,9 @@ public class MenuManager : MonoBehaviour
         player1AudioMenu.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(player1Button);
+
+        player1SubMenuOpen = false;
+        player2SubMenuOpen = false;
     }
 
     public void player2AudioClose()
@@ -103,11 +124,27 @@ public class MenuManager : MonoBehaviour
         player2AudioMenu.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(player2Button);
+
+        player1SubMenuOpen = false;
+        player2SubMenuOpen = false;
     }
 
 
     //Settings Menu
     public void OnQuitPres() {
         SceneManager.LoadScene(0);
+    }
+
+
+    public bool isSubMenuOpen() {
+        if (player1SubMenuOpen == true) {
+            return true;
+        }
+        if (player2SubMenuOpen == true)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

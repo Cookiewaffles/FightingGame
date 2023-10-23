@@ -1409,7 +1409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bcc7003942ec34faba97e2e2466f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerJoinedMenu: {fileID: 1148608211}
+  playerJoinedMenu: {fileID: 2145946203}
+  playerFightUI: {fileID: 1148608211}
   player1MainMenu: {fileID: 1242659331}
   player2MainMenu: {fileID: 1709707171}
   player1AudioMenu: {fileID: 377592982}
@@ -3226,7 +3227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185317231006163846, guid: b403563684d7f4e4498b95f98fd80f5e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185317231207681344, guid: b403563684d7f4e4498b95f98fd80f5e, type: 3}
       propertyPath: m_fontColor.a

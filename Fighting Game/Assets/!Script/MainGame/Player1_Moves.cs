@@ -103,17 +103,19 @@ public class Player1_Moves : MonoBehaviour
         flip();
 
         //Stamina Recharge
-        if (playerStamina < 100f)
-        {
-            playerStamina = playerStamina + (5 * Time.deltaTime);
-        }
-
-        if (playerHP == 0f && gauge1.color == Color.red && first == false)
-        {
-            if (bestof == 2) {
-                playerHP = 100f;
+        if (isPaused == false) {
+            if (playerStamina < 100f)
+            {
+                playerStamina = playerStamina + (5 * Time.deltaTime);
             }
-            first = true;
+
+            if (playerHP == 0f && gauge1.color == Color.red && first == false)
+            {
+                if (bestof == 2) {
+                    playerHP = 100f;
+                }
+                first = true;
+            }
         }
     }
 
@@ -171,29 +173,37 @@ public class Player1_Moves : MonoBehaviour
 
     public void OnAttack1()
     {
-        if (playerStamina >= 10f)
+        //Stamina Recharge
+        if (isPaused == false)
         {
-            controller.SetTrigger("Attack 01");
-
-            playerStamina = playerStamina - 10f;
-
-            if (isHit == true)
+            if (playerStamina >= 10f)
             {
-                lightAttack();
+                controller.SetTrigger("Attack 01");
+
+                playerStamina = playerStamina - 10f;
+
+                if (isHit == true)
+                {
+                    lightAttack();
+                }
             }
         }
     }
     public void OnAttack2()
     {
-        if (playerStamina >= 20f)
+        //Stamina Recharge
+        if (isPaused == false)
         {
-            controller.SetTrigger("Attack 02");
-
-            playerStamina = playerStamina - 20f;
-
-            if (isHit == true)
+            if (playerStamina >= 20f)
             {
-                strongAttack();
+                controller.SetTrigger("Attack 02");
+
+                playerStamina = playerStamina - 20f;
+
+                if (isHit == true)
+                {
+                    strongAttack();
+                }
             }
         }
     }
@@ -241,25 +251,27 @@ public class Player1_Moves : MonoBehaviour
     public void OnMenuOpenClose() {
         MenuManager mm = GameObject.Find("MenuManager").GetComponent<MenuManager>();
 
-        if (isPaused == false)
-        {
-            isPaused = true;
+        if (mm.isSubMenuOpen() == false) {
+            if (isPaused == false)
+            {
+                isPaused = true;
 
-            enemy.GetComponent<Player2_Moves>().enabled = false;
-            enemy.GetComponent<PlayerInput>().enabled = false;
+                enemy.GetComponent<Player2_Moves>().enabled = false;
+                enemy.GetComponent<PlayerInput>().enabled = false;
 
-            Time.timeScale = 0;
-            mm.Pause(1);
-        }
-        else if (isPaused == true)
-        {
-            isPaused = false;
+                Time.timeScale = 0;
+                mm.Pause(1);
+            }
+            else if (isPaused == true)
+            {
+                isPaused = false;
 
-            enemy.GetComponent<Player2_Moves>().enabled = true;
-            enemy.GetComponent<PlayerInput>().enabled = true;
+                enemy.GetComponent<Player2_Moves>().enabled = true;
+                enemy.GetComponent<PlayerInput>().enabled = true;
 
-            mm.Unpause(1);
-            Time.timeScale = 1.0f;
+                mm.Unpause(1);
+                Time.timeScale = 1.0f;
+            }
         }
     }
 
