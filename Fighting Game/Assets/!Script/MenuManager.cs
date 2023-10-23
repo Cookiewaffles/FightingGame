@@ -10,6 +10,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject player1MainMenu;
     [SerializeField] private GameObject player2MainMenu;
 
+    [Header("First Selection")]
+    [SerializeField] private GameObject player1Button;
+    [SerializeField] private GameObject player2Button;
+
     //During the Game
     void Start()
     {
@@ -21,14 +25,16 @@ public class MenuManager : MonoBehaviour
     //Pause/Unpause
     public void Pause(int player) {
         if (player == 1) {
-            
-
             player1MainMenu.SetActive(true);
             player2MainMenu.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(player1Button);
         }
         else if (player == 2) {
             player1MainMenu.SetActive(false);
             player2MainMenu.SetActive(true);
+
+            EventSystem.current.SetSelectedGameObject(player2Button);
         }
     }
 
@@ -44,20 +50,8 @@ public class MenuManager : MonoBehaviour
             player1MainMenu.SetActive(false);
             player2MainMenu.SetActive(false);
         }
-    }
 
-    //Open/Close Menu
-    private void OpenMainMenu() {
-        
-    }
-
-    private void OpenControlSettingsMenu() {
-        
-    }
-
-    private void CloseMainMenu()
-    {
-        
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     //Settings Menu
