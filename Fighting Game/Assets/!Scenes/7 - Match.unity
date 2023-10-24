@@ -1419,6 +1419,9 @@ MonoBehaviour:
   player2Button: {fileID: 385586679}
   player1AudioButton: {fileID: 1709381401}
   player2AudioButton: {fileID: 1714594541}
+  player1Volume: {fileID: 1709381403}
+  player2Volume: {fileID: 1714594543}
+  gameAudio: {fileID: 417337475}
 --- !u!4 &408944455
 Transform:
   m_ObjectHideFlags: 0
@@ -1445,7 +1448,7 @@ GameObject:
   - component: {fileID: 417337476}
   - component: {fileID: 417337475}
   m_Layer: 0
-  m_Name: Audio plauer
+  m_Name: Audio player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2986,7 +2989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 1 Pause
+  m_text: 'Player 2 Pause
 
     Audio'
   m_isRightToLeft: 0
@@ -4763,7 +4766,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 408944454}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: player1VolumeControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1709707171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,7 +4950,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 408944454}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: player2VolumeControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1714914302
 GameObject:
   m_ObjectHideFlags: 0

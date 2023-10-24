@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject player2AudioButton;
 
 
+    [Header("Audio")]
+    [SerializeField] private Slider player1Volume;
+    [SerializeField] private Slider player2Volume;
+    [SerializeField] private AudioSource gameAudio;
+
     private bool player1SubMenuOpen;
     private bool player2SubMenuOpen;
 
@@ -41,6 +47,10 @@ public class MenuManager : MonoBehaviour
 
         player1SubMenuOpen = false;
         player2SubMenuOpen = false;
+
+        //set audio bar
+        player1Volume.value = gameAudio.volume;
+        player2Volume.value = gameAudio.volume;
     }
 
 
@@ -129,6 +139,19 @@ public class MenuManager : MonoBehaviour
         player2SubMenuOpen = false;
     }
 
+    //volumeControls
+    public void player1VolumeControls() {
+        float volume = player1Volume.value;
+
+        gameAudio.volume = volume;
+    }
+
+    public void player2VolumeControls()
+    {
+        float volume = player2Volume.value;
+
+        gameAudio.volume = volume;
+    }
 
     //Settings Menu
     public void OnQuitPres() {
