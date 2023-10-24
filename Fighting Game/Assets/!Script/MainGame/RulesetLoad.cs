@@ -47,6 +47,7 @@ public class RulesetLoad : MonoBehaviour
     private void Start()
     {
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
+        audioEffect.volume = PlayerPrefs.GetFloat("SFX");
     }
 
     // Update is called once per frame

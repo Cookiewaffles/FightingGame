@@ -53,20 +53,24 @@ public class MainMenuSceneSelection : MonoBehaviour
     private int sceneValue = 1;
 
     public GameObject AudioControls;
+
     public Slider audioController;
     public GameObject sliderButton;
-
+    public Slider SFXAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.GetInt("completed") != 1) {
             PlayerPrefs.SetFloat("volume", 1);
+            PlayerPrefs.SetFloat("SFX", 1);
 
             PlayerPrefs.SetInt("completed", 1);
         }
 
         audioController.value = PlayerPrefs.GetFloat("volume");
+        SFXAudio.value = PlayerPrefs.GetFloat("SFX");
+
 
         Time.timeScale = 1.0f;
     }
@@ -327,5 +331,14 @@ public class MainMenuSceneSelection : MonoBehaviour
         audioSource.volume = volume;
 
         PlayerPrefs.SetFloat("volume", volume);
+    }
+
+    public void SFXUpdate()
+    {
+        float SFX = SFXAudio.value;
+
+        audioEffect.volume = SFX;
+
+        PlayerPrefs.SetFloat("SFX", SFX);
     }
 }

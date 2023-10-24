@@ -54,6 +54,7 @@ public class SceneSelection : MonoBehaviour
     void Start()
     {
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
+        audioEffect.volume = PlayerPrefs.GetFloat("SFX");
 
         GetSprite();
     }
