@@ -57,9 +57,12 @@ public class CharacterSelect : MonoBehaviour
 
     public UnityEngine.Color color1;
 
+    public AudioSource audioVolume;
+
+
     private void Start()
     {
-        
+        audioVolume.volume = PlayerPrefs.GetFloat("volume");
     }
 
     // Update is called once per frame

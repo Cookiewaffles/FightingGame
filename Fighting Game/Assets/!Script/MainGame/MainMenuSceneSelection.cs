@@ -66,6 +66,7 @@ public class MainMenuSceneSelection : MonoBehaviour
             PlayerPrefs.SetInt("completed", 1);
         }
 
+        audioController.value = PlayerPrefs.GetFloat("volume");
 
         Time.timeScale = 1.0f;
     }
@@ -288,22 +289,24 @@ public class MainMenuSceneSelection : MonoBehaviour
     }
 
     public void OnAccept() {
-        time = 0;
-        blink = 2.5f;
+        if (sceneValue != 4) {
+            time = 0;
+            blink = 2.5f;
 
-        nextFlasher = false;
-        prevFlasher = false;
+            nextFlasher = false;
+            prevFlasher = false;
 
-        nextFlash.GetComponent<Image>().color = color1;
-        prevFlash.GetComponent<Image>().color = color1;
+            nextFlash.GetComponent<Image>().color = color1;
+            prevFlash.GetComponent<Image>().color = color1;
 
-        acceptFlasher = true;
+            acceptFlasher = true;
 
-        audioEffect.clip = acptSoundEffect;
-        audioEffect.Play();
+            audioEffect.clip = acptSoundEffect;
+            audioEffect.Play();
 
-        Destroy(textObject);
-        Destroy(titleTextObject);
+            Destroy(textObject);
+            Destroy(titleTextObject);
+        }
     }
 
     //game icons

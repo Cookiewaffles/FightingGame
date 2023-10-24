@@ -1233,6 +1233,7 @@ MonoBehaviour:
   videos: {fileID: 795468210}
   clips: {fileID: 32900000, guid: e3995446ef7e6cd4e879634216efd220, type: 3}
   color1: {r: 0.5176471, g: 0.49411765, b: 0.5294118, a: 1}
+  audioVolume: {fileID: 1065322515}
 --- !u!4 &1065322513
 Transform:
   m_ObjectHideFlags: 0

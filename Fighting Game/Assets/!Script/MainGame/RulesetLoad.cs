@@ -42,6 +42,13 @@ public class RulesetLoad : MonoBehaviour
 
     public int selected = 1;
 
+    public AudioSource audioVolume;
+
+    private void Start()
+    {
+        audioVolume.volume = PlayerPrefs.GetFloat("volume");
+    }
+
     // Update is called once per frame
     void Update()
     {

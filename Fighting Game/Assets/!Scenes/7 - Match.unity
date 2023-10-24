@@ -492,7 +492,7 @@ MonoBehaviour:
   player1Spawn: {fileID: 1482062933}
   player2Spawn: {fileID: 1496629886}
   stageLoad: {fileID: 1179520433}
-  audio: {fileID: 417337475}
+  audioFile: {fileID: 417337475}
   gauge1: {fileID: 1148608208}
   guage2: {fileID: 1148608207}
   player1: {fileID: 215790450}

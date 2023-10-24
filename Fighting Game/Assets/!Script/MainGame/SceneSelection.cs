@@ -49,8 +49,12 @@ public class SceneSelection : MonoBehaviour
 
     public Color color1;
 
+    public AudioSource audioVolume;
+
     void Start()
     {
+        audioVolume.volume = PlayerPrefs.GetFloat("volume");
+
         GetSprite();
     }
 
