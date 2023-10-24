@@ -49,6 +49,7 @@ public class MenuManager : MonoBehaviour
         player2SubMenuOpen = false;
 
         //set audio bar
+        gameAudio.volume = PlayerPrefs.GetFloat("volume");
         player1Volume.value = gameAudio.volume;
         player2Volume.value = gameAudio.volume;
     }
@@ -157,14 +158,20 @@ public class MenuManager : MonoBehaviour
     public void player1VolumeControls() {
         float volume = player1Volume.value;
 
+        player2Volume.value = volume;
         gameAudio.volume = volume;
+
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
     public void player2VolumeControls()
     {
         float volume = player2Volume.value;
 
+        player1Volume.value = volume;
         gameAudio.volume = volume;
+
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
     //Quit button

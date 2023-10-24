@@ -54,6 +54,8 @@ public class MainMenuSceneSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetFloat("volume", 1);
+
         Time.timeScale = 1.0f;
 
     }
