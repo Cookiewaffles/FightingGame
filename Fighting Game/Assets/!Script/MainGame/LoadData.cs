@@ -25,7 +25,7 @@ public class LoadData : MonoBehaviour
     public Transform player2Spawn;
     public Transform stageLoad;
 
-    public AudioSource audio;
+    public AudioSource audioFile;
 
 
     int stageSelected;
@@ -50,7 +50,6 @@ public class LoadData : MonoBehaviour
     bool player2text = false;
     bool binding = false;
 
-    float speed = 5;
     float blink = 5;
     float time = 0;
 
@@ -66,7 +65,7 @@ public class LoadData : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     {
-        audio.Stop();
+        audioFile.Stop();
 
         //Stage Load
         stageSelected = PlayerPrefs.GetInt("StageSelect");
@@ -126,7 +125,7 @@ public class LoadData : MonoBehaviour
                 player2.transform.position = player2Spawn.position;
 
 
-                audio.Play();
+                audioFile.Play();
 
                 binding = true;
             }

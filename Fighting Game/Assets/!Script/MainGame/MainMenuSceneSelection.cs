@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class MainMenuSceneSelection : MonoBehaviour
     public VideoClip[] clips;
 
     public AudioSource audioSource;
-    public AudioClip[] audio;
+    public AudioClip[] audioFile;
 
     public GameObject position1;
     public GameObject position2;
@@ -49,15 +50,24 @@ public class MainMenuSceneSelection : MonoBehaviour
 
     public Color color1;
 
-    private int sceneValue = 1; 
+    private int sceneValue = 1;
+
+    public GameObject AudioControls;
+    public Slider audioController;
+    public GameObject sliderButton;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetFloat("volume", 1);
+        if (PlayerPrefs.GetInt("completed") != 1) {
+            PlayerPrefs.SetFloat("volume", 1);
+
+            PlayerPrefs.SetInt("completed", 1);
+        }
+
 
         Time.timeScale = 1.0f;
-
     }
 
     // Update is called once per frame
@@ -148,7 +158,7 @@ public class MainMenuSceneSelection : MonoBehaviour
                 sceneValue = 2;
 
                 videos.clip = clips[1];
-                audioSource.clip = audio[1];
+                audioSource.clip = audioFile[1];
                 audioSource.Play();
 
                 text.text = "Practice Mode";
@@ -159,7 +169,7 @@ public class MainMenuSceneSelection : MonoBehaviour
                 sceneValue = 3;
 
                 videos.clip = clips[2];
-                audioSource.clip = audio[2];
+                audioSource.clip = audioFile[2];
                 audioSource.Play();
 
                 text.text = "Quit Game";
@@ -167,10 +177,28 @@ public class MainMenuSceneSelection : MonoBehaviour
             }
             else if (sceneValue == 3)
             {
+                sceneValue = 4;
+
+                videos.enabled = false;
+                audioSource.clip = audioFile[0];
+                audioSource.Play();
+
+                AudioControls.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(sliderButton);
+
+                text.text = "";
+                text.transform.position = position1.transform.position;
+            } else if (sceneValue == 4) {
                 sceneValue = 1;
 
+                videos.enabled = true;
+
+                AudioControls.SetActive(false);
+
+                EventSystem.current.SetSelectedGameObject(null);
+
                 videos.clip = clips[0];
-                audioSource.clip = audio[0];
+                audioSource.clip = audioFile[0];
                 audioSource.Play();
 
                 text.text = "Local Multiplayer";
@@ -196,21 +224,25 @@ public class MainMenuSceneSelection : MonoBehaviour
 
             if (sceneValue == 1)
             {
-                sceneValue = 3;
+                sceneValue = 4;
 
-                videos.clip = clips[2];
-                audioSource.clip = audio[2];
+                videos.enabled = false;
+                audioSource.clip = audioFile[0];
                 audioSource.Play();
 
-                text.text = "Quit Game";
-                text.transform.position = position2.transform.position;
+                AudioControls.SetActive(true);
+
+                EventSystem.current.SetSelectedGameObject(sliderButton);
+
+                text.text = "";
+                text.transform.position = position1.transform.position;
             }
             else if (sceneValue == 2)
             {
                 sceneValue = 1;
 
                 videos.clip = clips[0];
-                audioSource.clip = audio[0];
+                audioSource.clip = audioFile[0];
                 audioSource.Play();
 
                 text.text = "Local Multiplayer";
@@ -221,11 +253,27 @@ public class MainMenuSceneSelection : MonoBehaviour
                 sceneValue = 2;
 
                 videos.clip = clips[1];
-                audioSource.clip = audio[1];
+                audioSource.clip = audioFile[1];
                 audioSource.Play();
 
                 text.text = "Practice Mode";
                 text.transform.position = position1.transform.position;
+            }
+            else if (sceneValue == 4)
+            {
+                sceneValue = 3;
+
+                videos.enabled = true;
+                AudioControls.SetActive(false);
+
+                EventSystem.current.SetSelectedGameObject(null);
+
+                videos.clip = clips[2];
+                audioSource.clip = audioFile[2];
+                audioSource.Play();
+
+                text.text = "Quit Game";
+                text.transform.position = position2.transform.position;
             }
 
             time = 0;
@@ -268,5 +316,13 @@ public class MainMenuSceneSelection : MonoBehaviour
     {
         gamePrevIcon.sprite = PrevIcons[1];
         gameNextIcon.sprite = NextIcons[1];
+    }
+
+    public void volumeUpdate() {
+        float volume = audioController.value;
+
+        audioSource.volume = volume;
+
+        PlayerPrefs.SetFloat("volume", volume);
     }
 }

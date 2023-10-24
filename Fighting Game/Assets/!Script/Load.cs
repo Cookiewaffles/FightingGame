@@ -9,7 +9,6 @@ public class Load : MonoBehaviour
 
     public Transform player1Spawn;
 
-    bool ready = false;
 
     // Start is called before the first frame update
     void Start()
