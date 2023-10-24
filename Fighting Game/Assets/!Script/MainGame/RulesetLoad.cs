@@ -209,6 +209,11 @@ public class RulesetLoad : MonoBehaviour
         Destroy(titleText);
     }
 
+    //onBack
+    public void OnBack() {
+        SceneManager.LoadScene(3);
+    }
+
     //game icons
     private void nextGameIcon()
     {

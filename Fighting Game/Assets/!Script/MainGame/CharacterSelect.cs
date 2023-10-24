@@ -351,6 +351,12 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
+    //OnBack
+    public void OnBack()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     //game icons
     private void nextGameIcon()
     {

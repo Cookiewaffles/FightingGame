@@ -245,6 +245,11 @@ public class SceneSelection : MonoBehaviour
         Destroy(stage);
     }
 
+    //OnBack
+    public void OnBack() {
+        SceneManager.LoadScene(2);
+    }
+
     //game icons
     private void nextGameIcon()
     {
