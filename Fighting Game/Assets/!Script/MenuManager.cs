@@ -90,6 +90,20 @@ public class MenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    //resume button
+    public void OnPlayer1ResumeClick() {
+        Player1_Moves resume = GameObject.Find("Player 1(Clone)").GetComponent<Player1_Moves>();
+
+        resume.OnMenuOpenClose();
+    }
+
+    public void OnPlayer2ResumeClick()
+    {
+        Player2_Moves resume = GameObject.Find("Player 2(Clone)").GetComponent<Player2_Moves>();
+
+        resume.OnMenuOpenClose();
+    }
+
     //audio settings
     //open
     public void player1AudioOpen() {
@@ -153,7 +167,7 @@ public class MenuManager : MonoBehaviour
         gameAudio.volume = volume;
     }
 
-    //Settings Menu
+    //Quit button
     public void OnQuitPres() {
         SceneManager.LoadScene(0);
     }
