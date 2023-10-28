@@ -59,11 +59,15 @@ public class CharacterSelect : MonoBehaviour
 
     public AudioSource audioVolume;
 
+    public GameObject mainCanvas;
 
     private void Start()
     {
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
         audioEffect.volume = PlayerPrefs.GetFloat("SFX");
+
+        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
 
     }
 

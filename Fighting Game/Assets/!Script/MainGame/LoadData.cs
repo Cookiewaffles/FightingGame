@@ -53,6 +53,10 @@ public class LoadData : MonoBehaviour
     float blink = 5;
     float time = 0;
 
+    public GameObject mainCanvas;
+    public GameObject player1C;
+    public GameObject player2C;
+
     private void Awake()
     {
         leaveAction.Enable();
@@ -65,6 +69,15 @@ public class LoadData : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     {
+        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+
+        player1C.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+
+        player2C.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+
         audioFile.Stop();
 
         //Stage Load

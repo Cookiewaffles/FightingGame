@@ -664,6 +664,7 @@ MonoBehaviour:
   chars: {fileID: 1717169046}
   color1: {r: 0.5176471, g: 0.49411765, b: 0.5294118, a: 1}
   audioVolume: {fileID: 670391296}
+  mainCanvas: {fileID: 1981836512}
 --- !u!4 &670391295
 Transform:
   m_ObjectHideFlags: 0
