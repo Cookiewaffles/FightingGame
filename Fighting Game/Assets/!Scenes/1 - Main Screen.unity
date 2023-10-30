@@ -396,9 +396,7 @@ MonoBehaviour:
   acptSoundEffect: {fileID: 8300000, guid: 4b5ca12af5103714b98fcad9a52b86d6, type: 3}
   color1: {r: 0.5176471, g: 0.49411765, b: 0.5294118, a: 1}
   AudioControls: {fileID: 347194108}
-  audioController: {fileID: 2005605936}
-  sliderButton: {fileID: 2005605934}
-  SFXAudio: {fileID: 1915721553}
+  mainCanvas: {fileID: 2112249309}
 --- !u!4 &264873601
 Transform:
   m_ObjectHideFlags: 0
