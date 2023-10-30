@@ -131,7 +131,7 @@ public class SceneSelection : MonoBehaviour
             {
                 PlayerPrefs.SetInt("StageSelect", selected);
 
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(5);
             }
         }
     }
@@ -252,7 +252,7 @@ public class SceneSelection : MonoBehaviour
 
     //OnBack
     public void OnBack() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     //game icons

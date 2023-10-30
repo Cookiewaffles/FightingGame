@@ -124,7 +124,7 @@ public class RulesetLoad : MonoBehaviour
             {
                 PlayerPrefs.SetInt("bestof", selected);
 
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(6);
             }
         }
     }
@@ -216,7 +216,7 @@ public class RulesetLoad : MonoBehaviour
 
     //onBack
     public void OnBack() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     //game icons
