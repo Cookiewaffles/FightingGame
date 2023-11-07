@@ -127,7 +127,7 @@ public class Player2_Moves : MonoBehaviour
 
         if (IsGrounded() == false)
         {
-            //character.GetComponent<BoxCollider2D>().sharedMaterial = sky;
+            character.GetComponent<BoxCollider2D>().sharedMaterial = sky;
         }
         else
         {
