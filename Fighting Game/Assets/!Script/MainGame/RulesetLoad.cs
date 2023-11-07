@@ -44,10 +44,15 @@ public class RulesetLoad : MonoBehaviour
 
     public AudioSource audioVolume;
 
+    public GameObject mainCanvas;
+
     private void Start()
     {
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
         audioEffect.volume = PlayerPrefs.GetFloat("SFX");
+
+        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
     }
 
     // Update is called once per frame
@@ -119,7 +124,7 @@ public class RulesetLoad : MonoBehaviour
             {
                 PlayerPrefs.SetInt("bestof", selected);
 
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(6);
             }
         }
     }
@@ -211,7 +216,7 @@ public class RulesetLoad : MonoBehaviour
 
     //onBack
     public void OnBack() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     //game icons

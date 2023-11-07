@@ -152,7 +152,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3899188809250625316}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1a315f05bf1ff594da2ad6b79aacf03c, type: 2}
+  m_Material: {fileID: 6200000, guid: 8ef322b8e22dc5743afe08af26199d55, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -278,6 +278,8 @@ MonoBehaviour:
   playerStamina: 100
   gauge1: {fileID: 0}
   first: 0
+  sky: {fileID: 6200000, guid: 35474aeff3faf3247b0ddac6f725c295, type: 2}
+  ground: {fileID: 6200000, guid: 8ef322b8e22dc5743afe08af26199d55, type: 2}
 --- !u!114 &-5610034494335186496
 MonoBehaviour:
   m_ObjectHideFlags: 0

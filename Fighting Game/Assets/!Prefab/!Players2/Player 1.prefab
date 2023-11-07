@@ -198,7 +198,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4323871877607411197}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1a315f05bf1ff594da2ad6b79aacf03c, type: 2}
+  m_Material: {fileID: 6200000, guid: 8ef322b8e22dc5743afe08af26199d55, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -310,6 +310,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d8f3a811-606f-44e3-b49b-3933efef0dfa
     m_ActionName: Player/Move[/XInputControllerWindows/leftStick,/DualSenseGamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 92d45d55-1ee6-4e1c-9b87-c42eb5bce549
+    m_ActionName: Menu/NextOption[/Keyboard/w,/XInputControllerWindows/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c338107-2633-4789-b2dc-3ccf9de4c864
+    m_ActionName: Menu/PrevOption[/Keyboard/s,/XInputControllerWindows/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 80a1f755-8113-41d4-93c8-2e5371a1f0bb
+    m_ActionName: Menu/Accept[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 650ff39b-0cd4-421d-96b9-3118f6a314d5
+    m_ActionName: Menu/Back[/Keyboard/backspace,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7820ac2-29f1-4fd5-a0ac-7cb4359362e0
+    m_ActionName: Menu/Left[/Keyboard/a,/XInputControllerWindows/leftStick/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56bb2162-0319-4874-a24e-94b9f50dad1b
+    m_ActionName: Menu/Right[/Keyboard/d,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -348,6 +372,8 @@ MonoBehaviour:
   playerStamina: 100
   gauge1: {fileID: 0}
   first: 0
+  sky: {fileID: 6200000, guid: 35474aeff3faf3247b0ddac6f725c295, type: 2}
+  ground: {fileID: 6200000, guid: 8ef322b8e22dc5743afe08af26199d55, type: 2}
 --- !u!114 &8288615661597007158
 MonoBehaviour:
   m_ObjectHideFlags: 0

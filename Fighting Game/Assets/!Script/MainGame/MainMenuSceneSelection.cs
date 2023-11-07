@@ -54,9 +54,8 @@ public class MainMenuSceneSelection : MonoBehaviour
 
     public GameObject AudioControls;
 
-    public Slider audioController;
-    public GameObject sliderButton;
-    public Slider SFXAudio;
+    public GameObject mainCanvas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,12 +64,19 @@ public class MainMenuSceneSelection : MonoBehaviour
             PlayerPrefs.SetFloat("volume", 1);
             PlayerPrefs.SetFloat("SFX", 1);
 
+            PlayerPrefs.SetInt("widdth", 1920);
+            PlayerPrefs.SetInt("height", 1080);
+
             PlayerPrefs.SetInt("completed", 1);
+
+            PlayerPrefs.SetInt("drop", 2);
         }
 
-        audioController.value = PlayerPrefs.GetFloat("volume");
-        SFXAudio.value = PlayerPrefs.GetFloat("SFX");
+        audioSource.volume = PlayerPrefs.GetFloat("volume");
+        audioEffect.volume = PlayerPrefs.GetFloat("SFX");
 
+        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
 
         Time.timeScale = 1.0f;
     }
@@ -138,13 +144,17 @@ public class MainMenuSceneSelection : MonoBehaviour
             {
                 if (sceneValue == 1)
                 {
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene(3);
                 }
                 else if (sceneValue == 2)
                 {
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene(2);
                 }
                 else if (sceneValue == 3)
+                {
+                    SceneManager.LoadScene(1);
+                }
+                else if (sceneValue == 4)
                 {
                     Application.Quit();
                 }
@@ -177,30 +187,22 @@ public class MainMenuSceneSelection : MonoBehaviour
                 audioSource.clip = audioFile[2];
                 audioSource.Play();
 
-                text.text = "Quit Game";
+                text.text = "Settings";
                 text.transform.position = position2.transform.position;
             }
             else if (sceneValue == 3)
             {
                 sceneValue = 4;
 
-                videos.enabled = false;
-                audioSource.clip = audioFile[0];
+                videos.clip = clips[2];
+                audioSource.clip = audioFile[2];
                 audioSource.Play();
 
-                AudioControls.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(sliderButton);
+                text.text = "Quit Game";
+                text.transform.position = position2.transform.position;
 
-                text.text = "";
-                text.transform.position = position1.transform.position;
             } else if (sceneValue == 4) {
                 sceneValue = 1;
-
-                videos.enabled = true;
-
-                AudioControls.SetActive(false);
-
-                EventSystem.current.SetSelectedGameObject(null);
 
                 videos.clip = clips[0];
                 audioSource.clip = audioFile[0];
@@ -231,16 +233,12 @@ public class MainMenuSceneSelection : MonoBehaviour
             {
                 sceneValue = 4;
 
-                videos.enabled = false;
-                audioSource.clip = audioFile[0];
+                videos.clip = clips[2];
+                audioSource.clip = audioFile[2];
                 audioSource.Play();
 
-                AudioControls.SetActive(true);
-
-                EventSystem.current.SetSelectedGameObject(sliderButton);
-
-                text.text = "";
-                text.transform.position = position1.transform.position;
+                text.text = "Quit Game";
+                text.transform.position = position2.transform.position;
             }
             else if (sceneValue == 2)
             {
@@ -268,16 +266,11 @@ public class MainMenuSceneSelection : MonoBehaviour
             {
                 sceneValue = 3;
 
-                videos.enabled = true;
-                AudioControls.SetActive(false);
-
-                EventSystem.current.SetSelectedGameObject(null);
-
                 videos.clip = clips[2];
                 audioSource.clip = audioFile[2];
                 audioSource.Play();
 
-                text.text = "Quit Game";
+                text.text = "Settings";
                 text.transform.position = position2.transform.position;
             }
 
@@ -323,22 +316,5 @@ public class MainMenuSceneSelection : MonoBehaviour
     {
         gamePrevIcon.sprite = PrevIcons[1];
         gameNextIcon.sprite = NextIcons[1];
-    }
-
-    public void volumeUpdate() {
-        float volume = audioController.value;
-
-        audioSource.volume = volume;
-
-        PlayerPrefs.SetFloat("volume", volume);
-    }
-
-    public void SFXUpdate()
-    {
-        float SFX = SFXAudio.value;
-
-        audioEffect.volume = SFX;
-
-        PlayerPrefs.SetFloat("SFX", SFX);
     }
 }

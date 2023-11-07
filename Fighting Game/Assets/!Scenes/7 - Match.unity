@@ -531,6 +531,9 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  mainCanvas: {fileID: 1148608211}
+  player1C: {fileID: 1771706232}
+  player2C: {fileID: 1379832814}
 --- !u!1 &181915507
 GameObject:
   m_ObjectHideFlags: 0

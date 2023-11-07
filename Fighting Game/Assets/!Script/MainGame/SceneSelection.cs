@@ -51,10 +51,15 @@ public class SceneSelection : MonoBehaviour
 
     public AudioSource audioVolume;
 
+    public GameObject mainCanvas;
+
     void Start()
     {
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
         audioEffect.volume = PlayerPrefs.GetFloat("SFX");
+
+        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
+            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
 
         GetSprite();
     }
@@ -126,7 +131,7 @@ public class SceneSelection : MonoBehaviour
             {
                 PlayerPrefs.SetInt("StageSelect", selected);
 
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(5);
             }
         }
     }
@@ -247,7 +252,7 @@ public class SceneSelection : MonoBehaviour
 
     //OnBack
     public void OnBack() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     //game icons
