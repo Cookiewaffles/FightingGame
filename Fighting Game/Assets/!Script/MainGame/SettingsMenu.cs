@@ -63,6 +63,8 @@ public class SettingsMenu : MonoBehaviour
 
         VideoCanvas.SetActive(true);
         AudioCanvas.SetActive(false);
+
+        dropdownMenu.value = PlayerPrefs.GetInt("drop"); ;
     }
 
     //on left
@@ -238,13 +240,20 @@ public class SettingsMenu : MonoBehaviour
         if (dropdownMenu.value == 0) {
             PlayerPrefs.SetInt("width", 640);
             PlayerPrefs.SetInt("height", 480);
-        } else if (dropdownMenu.value == 1) {
+
+            PlayerPrefs.SetInt("drop", 0);
+        }
+        else if (dropdownMenu.value == 1) {
             PlayerPrefs.SetInt("width", 1280);
             PlayerPrefs.SetInt("height", 720);
+
+            PlayerPrefs.SetInt("drop", 1);
         }
         else if (dropdownMenu.value == 2) {
             PlayerPrefs.SetInt("width", 1920);
             PlayerPrefs.SetInt("height", 1080);
+
+            PlayerPrefs.SetInt("drop", 2);
         }
 
         setReseloution();

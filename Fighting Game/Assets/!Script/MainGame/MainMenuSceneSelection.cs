@@ -68,6 +68,8 @@ public class MainMenuSceneSelection : MonoBehaviour
             PlayerPrefs.SetInt("height", 1080);
 
             PlayerPrefs.SetInt("completed", 1);
+
+            PlayerPrefs.SetInt("drop", 2);
         }
 
         audioSource.volume = PlayerPrefs.GetFloat("volume");

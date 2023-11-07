@@ -57,6 +57,10 @@ public class Player1_Moves : MonoBehaviour
     public Image gauge1;
     public bool first;
 
+    //materials
+    public PhysicsMaterial2D sky;
+    public PhysicsMaterial2D ground;
+
     //pause
     bool isPaused;
 
@@ -116,6 +120,13 @@ public class Player1_Moves : MonoBehaviour
                 }
                 first = true;
             }
+        }
+
+        if (IsGrounded() == false) {
+            character.GetComponent<BoxCollider2D>().sharedMaterial = sky;
+        }
+        else {
+            character.GetComponent<BoxCollider2D>().sharedMaterial = ground;
         }
     }
 

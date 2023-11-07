@@ -217,6 +217,8 @@ MonoBehaviour:
   playerStamina: 100
   gauge1: {fileID: 0}
   first: 0
+  sky: {fileID: 6200000, guid: 847bc3ef36d6efe4b861f58b01c1a178, type: 2}
+  ground: {fileID: 6200000, guid: 4dea53dfc2903f848b0a99bcd80a48be, type: 2}
 --- !u!114 &4648216581748897342
 MonoBehaviour:
   m_ObjectHideFlags: 0
