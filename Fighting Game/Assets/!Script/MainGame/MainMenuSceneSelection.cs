@@ -50,7 +50,7 @@ public class MainMenuSceneSelection : MonoBehaviour
 
     public Color color1;
 
-    private int sceneValue = 1;
+    public int sceneValue = 1;
 
     public GameObject AudioControls;
 
@@ -75,8 +75,14 @@ public class MainMenuSceneSelection : MonoBehaviour
         audioSource.volume = PlayerPrefs.GetFloat("volume");
         audioEffect.volume = PlayerPrefs.GetFloat("SFX");
 
-        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+        if (PlayerPrefs.GetInt("drop") == 2)
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = true);
+        }
+        else
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = false);
+        }
 
         Time.timeScale = 1.0f;
     }
@@ -286,7 +292,7 @@ public class MainMenuSceneSelection : MonoBehaviour
     }
 
     public void OnAccept() {
-        if (sceneValue != 4) {
+        if (sceneValue != 5) {
             time = 0;
             blink = 2.5f;
 

@@ -69,14 +69,14 @@ public class LoadData : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     {
-        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
-
-        player1C.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
-
-        player2C.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+        if (PlayerPrefs.GetInt("drop") == 2)
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = true);
+        }
+        else
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = false);
+        }
 
         audioFile.Stop();
 

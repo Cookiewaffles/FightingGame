@@ -51,8 +51,14 @@ public class RulesetLoad : MonoBehaviour
         audioVolume.volume = PlayerPrefs.GetFloat("volume");
         audioEffect.volume = PlayerPrefs.GetFloat("SFX");
 
-        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution =
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
+        if (PlayerPrefs.GetInt("drop") == 2)
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = true);
+        }
+        else
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = false);
+        }
     }
 
     // Update is called once per frame

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -261,8 +262,12 @@ public class SettingsMenu : MonoBehaviour
 
     public void setReseloution()
     {
-        mainCanvas.GetComponent<Canvas>().GetComponent<CanvasScaler>().referenceResolution = 
-            new Vector2(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"));
-
+        if (PlayerPrefs.GetInt("drop") == 2) {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = true);
+        }
+        else
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), Screen.fullScreen = false);
+        }
     }
 }
